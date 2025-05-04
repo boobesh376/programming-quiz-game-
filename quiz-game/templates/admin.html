@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel - Programming Quiz Game</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+
+        <h2>Post a New Question</h2>
+        <form method="post">
+            <textarea name="question" placeholder="Enter Question" rows="4" required></textarea><br>
+            <input type="text" name="option1" placeholder="Option 1" required><br>
+            <input type="text" name="option2" placeholder="Option 2" required><br>
+            <input type="text" name="option3" placeholder="Option 3" required><br>
+            <input type="text" name="option4" placeholder="Option 4" required><br>
+            <input type="text" name="answer" placeholder="Correct Answer" required><br>
+            <select name="category" required>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select><br>
+            <button type="submit">Post Question</button>
+        </form>
+
+        <h2>Users Database</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Mail</th>
+                <th>Category</th>
+                <th>Marks</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[0] }}</td>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+                <td>{{ user[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Manage Database</h2>
+        <a href="/clear_questions/easy" class="clear-button">Clear Easy Questions</a>
+        <a href="/clear_questions/medium" class="clear-button">Clear Medium Questions</a>
+        <a href="/clear_questions/hard" class="clear-button">Clear Hard Questions</a>
+        <a href="/clear_users" class="clear-button">Clear All Users</a>
+    </div>
+</body>
+</html>

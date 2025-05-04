@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" style="text-align: center;">
+        <h1>Congratulations {{ name }}! 🎉</h1>
+        <h2>You have completed the quiz.</h2>
+        <p style="font-size: 24px;">Your Score: <strong>{{ marks }}</strong> marks</p>
+        <a href="/" class="clear-button">Go Home</a>
+    </div>
+</body>
+</html>

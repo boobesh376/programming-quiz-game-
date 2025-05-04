@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Time!</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Questions</h1>
+        <form method="POST" action="/questions">
+            <input type="hidden" name="name" value="{{ name }}">
+            <input type="hidden" name="mail" value="{{ mail }}">
+            <input type="hidden" name="category" value="{{ category }}">
+            
+            {% for question in questions %}
+            <div class="question-block">
+                <h2>{{ loop.index }}. {{ question[1] }}</h2>
+                <label><input type="radio" name="{{ question[0] }}" value="{{ question[2] }}"> {{ question[2] }}</label><br>
+                <label><input type="radio" name="{{ question[0] }}" value="{{ question[3] }}"> {{ question[3] }}</label><br>
+                <label><input type="radio" name="{{ question[0] }}" value="{{ question[4] }}"> {{ question[4] }}</label><br>
+                <label><input type="radio" name="{{ question[0] }}" value="{{ question[5] }}"> {{ question[5] }}</label><br>
+            </div>
+            {% endfor %}
+            
+            <button type="submit">Submit Quiz</button>
+        </form>
+    </div>
+</body>
+</html>
